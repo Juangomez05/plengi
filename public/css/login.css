@@ -1,0 +1,31 @@
+/* Login */
+body{
+    background: rgb(223, 197, 168);
+    background: linear-gradient(to right, rgb(143, 130, 116), rgb(92, 117, 99));
+}
+body main .container{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.bglogin{
+    background-image: url(/assets/img/presupuesto2.jpg);
+    background-position: center center;
+    border-radius: 10px 0px 0px 10px;
+}
+.bgregister{
+    background-image: url(/assets/img/Presupuesto.jpg);
+    background-position: center center;
+    border-radius: 10px 0px 0px 10px;
+}
+.container-login-derecha{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.login-logo img{
+    width: 200px;
+}
+
+.login-facebook img{
+    width: 30px;
+}
+/* /Login */
