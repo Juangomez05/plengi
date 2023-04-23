@@ -31,15 +31,15 @@
                             <i class='bx bx-user nav_icon'></i>
                             <span class="nav_name">Users</span>
                         </a>
-                        <a href="#" class="nav_link border-top m-0 py-4 active">
+                        <a href="{{route('presupuesto')}}" class="nav_link border-top m-0 py-4 active">
                             <i class='bx bx-message-square-detail nav_icon'></i>
                             <span class="nav_name">Presupuesto</span>
                         </a>
-                        <a href="#" class="nav_link">
+                        <a href="{{route('apu')}}" class="nav_link" >
                             <i class='bx bx-folder nav_icon'></i>
                             <span class="nav_name">APU</span>
                         </a>
-                        <a href="#" class="nav_link">
+                        <a href="{{route('materiales')}}" class="nav_link">
                             <i class='bx bx-bookmark nav_icon'></i>
                             <span class="nav_name">Insumos</span>
                         </a>

@@ -22,6 +22,9 @@
                     <td>{{ $material->id_orden }}</td>
                     <td>{{ $material->materiales }}</td>
                     <td>{{ $material->unidad }}</td>
+                    @foreach ($allmatriz as $matriz)
+                        <td>{{$matriz->cantidad}}</td>
+                    @endforeach
                     <td>{{ $material->valor_unitario }}</td>
                     <td>{{ $material->valor_total }}</td>
                     <td class="text-end col-4 col-md-auto">

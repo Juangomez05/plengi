@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Materiales;
+use App\Models\Matriz;
 
 class MaterialesController extends Controller
 {
     //mostrar todos los datos de materiales
     public function showMateriales(){
         $material = Materiales::all();
+        $matriz = Matriz::all();
 
         return view('materiales.materialesView',[
-            'allmateriales' => Materiales::all()
+            'allmateriales' => Materiales::all(),
+            'allmatriz' => Matriz::all()
         ]);
     }
 
@@ -38,11 +41,10 @@ class MaterialesController extends Controller
     //vista editar materiales
     public function editMateriales($_id){
         $material = Materiales::findOrFail($_id);
-
         return view('materiales.editarMateriales',compact('material'));
     }
 
-    //actualizar materiales
+    //editar materiales
     public function updateMateriales(Request $request, $_id){
         $material = Materiales::findOrFail($_id);
 

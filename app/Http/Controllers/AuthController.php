@@ -58,7 +58,7 @@ class AuthController extends Controller
             auth()->login($user, $rememberMe); //pasa el valor a rememberMe
 
             // Redirige a la ruta deseada después del inicio de sesión
-            return redirect('/');
+            return redirect('/presupuesto');
         }
 
         // Si la autenticación falla, muestra un mensaje de error
@@ -94,7 +94,7 @@ class AuthController extends Controller
         $user->save();
 
         // Redireccionar o devolver una respuesta
-        return redirect('/')->with('success', 'Usuario creado exitosamente');
+        return redirect('/presupuesto')->with('success', 'Usuario creado exitosamente');
     }
 
     //---- CERRAR SESION ------//

@@ -60,7 +60,7 @@
                 <div class="carousel-caption">
                     <h5>PLENGI</h5>
                     <p>Desarrolla tu presupuesto con nosotros</p>
-                    <p><a href="#" class="btn btn-warning mt3">Get started</a></p>
+                    <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
                 </div>
             </div>
             <div class="carousel-item">
@@ -68,7 +68,7 @@
                 <div class="carousel-caption">
                     <h5>Nuestros proyectos</h5>
                     <p>Desarrolla tu presupuesto con nosotros</p>
-                    <p><a href="#" class="btn btn-warning mt3">Get started</a></p>
+                    <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
                 </div>
             </div>
             <div class="carousel-item">
@@ -76,7 +76,7 @@
                 <div class="carousel-caption">
                     <h5>Tu presupuesto gratis</h5>
                     <p>Desarrolla tu presupuesto con nosotros</p>
-                    <p><a href="#" class="btn btn-warning mt3">Get started</a></p>
+                    <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
                 </div>
             </div>
         </div>
