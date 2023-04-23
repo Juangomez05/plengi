@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MatrizController;
+
 
 //landing page
 
@@ -23,4 +25,6 @@ Route::post('/registration', [AuthController::class, 'registration'])->name('gua
 //logoaut
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
+//MATRIZ
+Route::get('/presupuesto', [MatrizController::class, 'showMatriz'])->name('matriz')->name('presupuesto');
+Route::post('/presupuesto',[MatrizController::class, 'createMatriz'])->name('crear_presupuesto');
