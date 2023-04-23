@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Database\Eloquent\Model;
 Use Jenssegers\Mongodb\Eloquent\Model;
 
-class Matriz extends Model
+class Materiales extends Model
 {
     use HasFactory;
 
     protected $connection = "mongodb";
-    protected $collection= "Matriz";
+    protected $collection= "materiales";
 }

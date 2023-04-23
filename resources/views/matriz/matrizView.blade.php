@@ -18,7 +18,7 @@
         @foreach ($allmatriz as $matriz)
         <tr>
             <td>{{$matriz->id_orden}}</td>
-            <td><a href="{{route('')}}">{{$matriz->actividad}}</a></td>
+            <td><a href="{{route('apu')}}">{{$matriz->actividad}}</a></td>
             <td>{{$matriz->unidad}}</td>
             <td>{{$matriz->cantidad}}</td>
             <td class="text-end col-4 col-md-auto">

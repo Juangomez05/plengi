@@ -22,7 +22,6 @@ class MatrizController extends Controller
 
         // Obtener el número de filas en la base de datos
         $numFilas = Matriz::count();
-
         // Actualizar el valor de id_orden
         $matriz->id_orden = $numFilas + 1;
 
