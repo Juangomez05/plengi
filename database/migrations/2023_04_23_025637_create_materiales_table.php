@@ -15,7 +15,7 @@ class CreateMaterialesTable extends Migration
     {
         Schema::create('materiales', function (Blueprint $table) {
             $table->id();
-            $table->string('material');
+            $table->string('materiales');
             $table->string('unidad');
             $table->floatval('valor_unitario');
             $table->floatval('valor_total');

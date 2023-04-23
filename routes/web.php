@@ -36,4 +36,11 @@ Route::get('/apu',[APUController::class, 'showAPU'])->name("apu");
 
 //MATERIALES
 Route::get('/materiales',[MaterialesController::class, 'showMateriales'])->name("materiales");
-Route::post('/materiales',[MaterialesController::class, 'createMateriales'])->name("crear_materiales");
+//crear materiales
+Route::post('/materiales/create',[MaterialesController::class, 'createMateriales'])->name("crear_materiales");
+//editar materiales
+Route::get('/materiales/{id}/update',[MaterialesController::class, 'editMateriales'])->name("editar_materiales");
+Route::put('/materiales/{id}',[MaterialesController::class, 'updateMateriales'])->name("actualizar_materiales");
+//eliminar material
+Route::delete('/materiales/{id}',[MaterialesController::class, 'destroyMaterial'])->name("eliminar_material");
+

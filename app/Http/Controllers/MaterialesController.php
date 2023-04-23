@@ -28,10 +28,36 @@ class MaterialesController extends Controller
 
         $material->materiales = $request->materiales;
         $material->unidad = $request->unidad;
-        $material->val_unitario = floatval($request->val_unitario);
+        $material->valor_unitario = floatval($request->valor_unitario);
 
         $material->save();
 
         return redirect('/materiales');
     }
+
+    //vista editar materiales
+    public function editMateriales($_id){
+        $material = Materiales::findOrFail($_id);
+
+        return view('materiales.editarMateriales',compact('material'));
+    }
+
+    //actualizar materiales
+    public function updateMateriales(Request $request, $_id){
+        $material = Materiales::findOrFail($_id);
+
+        $material->materiales = $request->input('materiales');
+        $material->unidad = $request->input('unidad');
+        $material->valor_unitario = $request->input('valor_unitario');
+
+        $material->save();
+
+        return redirect('/materiales');
+    }
+
+    public function destroyMaterial(Materiales $id){
+        $id->delete();
+        return redirect('/materiales');
+    }
+
 }
