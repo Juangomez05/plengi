@@ -17,21 +17,19 @@ Route::get('/', function () {
 //-----------------//
 
 //AUTH
-
 //iniciar sesion
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('guardar_login');
-
 //registro
 Route::get('/registration', [AuthController::class, 'showRegistrationForm'])->name('registro');
 Route::post('/registration', [AuthController::class, 'registration'])->name('guardar_registro');
-
 //logoaut
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //-----------------//
 
 //MATRIZ
+
 //vista
 Route::get('/presupuesto', [MatrizController::class, 'showMatriz'])->name('presupuesto');
 //crear matriz
@@ -45,10 +43,13 @@ Route::delete('/presupuesto/{id}',[MatrizController::class, 'destroyMatriz'])->n
 //-----------------//
 
 //MATERIALES
+
 //vista
 Route::get('/materiales',[MaterialesController::class, 'showMateriales'])->name("materiales");
 //crear materiales
 Route::post('/materiales/create',[MaterialesController::class, 'createMateriales'])->name("crear_materiales");
+//agregar materiales A.P.U
+Route::post('/materiales/{id}/apu', [MaterialesController::class, 'uptateAPUMateriales'])->name('agregar_materiales_apu');
 //editar materiales
 Route::get('/materiales/{id}/update',[MaterialesController::class, 'editMateriales'])->name("editar_materiales");
 Route::put('/materiales/{id}',[MaterialesController::class, 'updateMateriales'])->name("actualizar_materiales");
@@ -58,5 +59,6 @@ Route::delete('/materiales/{id}',[MaterialesController::class, 'destroyMaterial'
 //-----------------//
 
 //APU
+
 //vista
 Route::get('/apu',[APUController::class, 'showAPU'])->name('apu');

@@ -10,6 +10,7 @@ class APUController extends Controller
 {
     // --------  --------//
 
+    //mostrar todos los datos APU
     public function showAPU(){
         $material = Materiales::all();
         $matriz = Matriz::all();

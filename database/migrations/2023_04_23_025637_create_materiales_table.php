@@ -18,6 +18,7 @@ class CreateMaterialesTable extends Migration
             $table->string('materiales');
             $table->string('unidad');
             $table->floatval('valor_unitario');
+            $table->floatval('desperdicio');
             $table->floatval('valor_total');
             $table->timestamps();
         });

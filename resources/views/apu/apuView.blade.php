@@ -46,72 +46,46 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Guadua</td>
-                <td>Und</td>
-                <td>8</td>
-                <td>5</td>
-                <td>8.4</td>
-                <td>$12.000</td>
-                <td>$100.800</td>
-                <td class="text-end">
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Puntillas de 1y1/2"</td>
-                <td>Lb</td>
-                <td>2</td>
-                <td>-</td>
-                <td>2</td>
-                <td>$3.500</td>
-                <td>$7.000</td>
-                <td class="text-end">
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Tela Cerramiento</td>
-                <td>Ml</td>
-                <td>20</td>
-                <td>-</td>
-                <td>20</td>
-                <td>$5.200</td>
-                <td>$104.000</td>
-                <td class="text-end">
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
-                </td>
-            </tr>
+            @foreach ($allmateriales as $material)
+                <tr>
+                    <th scope="row">{{$material->id_orden}}</th>
+                    <td>{{$material->materiales}}</td>
+                    <td>{{$material->unidad}}</td>
+                    <td>{{$material->cantidad}}</td>
+                    <td>%{{$material->desperdicio}}</td>
+                    <td>{{$material->cantidad}}</td>
+                    <td>${{$material->valor_unitario}}</td>
+                    <td>${{$material->valor_total}}</td>
+                    <td class="text-end">
+                        <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
+                        <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
+                        <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
+                        <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     <!--/Materiales APU-->
+
     <!-- Ingreso de Materiales -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-7">
-                <form action="">
+                <form action="{{ route('agregar_materiales_apu', ['id' => $material->_id]) }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-6 pe-1">
-                            <input type="text" class="form-control" placeholder="Ingresar Material"
-                                aria-label="Material">
+                            <input type="text" id="materiales" name="materiales" class="form-control"
+                                placeholder="Ingresar Material" aria-label="Material">
                         </div>
                         <div class="col-2 px-1">
-                            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad">
+                            <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad"
+                                aria-label="Cantidad">
                         </div>
                         <div class="col-2 px-1">
-                            <input type="text" class="form-control" placeholder="% Desperdicio" aria-label="Desperdicio">
+                            <input type="number" id="desperdicio" name="desperdicio" class="form-control"
+                                placeholder="% Desperdicio" aria-label="Desperdicio">
                         </div>
                         <div class="col-2 px-1 text-center">
                             <button type="submit" class="btn btn-primary">+</button>
@@ -126,6 +100,7 @@
         </div>
     </div>
     <!-- /Ingreso de Materiales -->
+
     <!--Equipos Y Herramientas-->
     <table class="table table-striped table-hover mt-3">
         <thead>
@@ -156,39 +131,10 @@
                     <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Volqueta</td>
-                <td>Viaje</td>
-                <td>5%</td>
-                <td>2</td>
-                <td>$180.000</td>
-                <td>$360.800</td>
-                <td class="text-end">
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Herramienta menor</td>
-                <td>Glb</td>
-                <td>1%</td>
-                <td>1</td>
-                <td>$211.800</td>
-                <td>$2.118</td>
-                <td class="text-end">
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
-                    <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
-                </td>
-            </tr>
         </tbody>
     </table>
     <!--/Equipos Y Herramientas-->
+
     <!-- Ingreso de Equipos Y Herramientas -->
     <div class="container-fluid">
         <div class="row">
@@ -196,8 +142,7 @@
                 <form action="">
                     <div class="row">
                         <div class="col-6 pe-1">
-                            <input type="text" class="form-control" placeholder="Ingresar Equipo"
-                                aria-label="Equipo">
+                            <input type="text" class="form-control" placeholder="Ingresar Equipo" aria-label="Equipo">
                         </div>
                         <div class="col-4 px-1">
                             <input type="text" class="form-control" placeholder="Cantidad" aria-label="Cantidad">
@@ -215,6 +160,7 @@
         </div>
     </div>
     <!-- /Ingreso de Equipos Y Herramientas -->
+
     <!--Mano de Obra-->
     <table class="table table-striped table-hover mt-3">
         <thead>
@@ -248,6 +194,7 @@
         </tbody>
     </table>
     <!--/Mano de Obra-->
+
     <!-- Ingreso de Mano de Obra -->
     <div class="container-fluid">
         <div class="row">

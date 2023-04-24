@@ -48,7 +48,7 @@ class MatrizController extends Controller
 
         $matriz->actividad = $request->input('actividad');
         $matriz->unidad = $request->input('unidad');
-        $matriz->cantidad = $request->input('cantidad');
+        $matriz->cantidad = floatval($request->input('cantidad'));
         $matriz->save();
 
         return redirect('/presupuesto');

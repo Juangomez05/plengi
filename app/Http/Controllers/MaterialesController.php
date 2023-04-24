@@ -40,6 +40,25 @@ class MaterialesController extends Controller
         return redirect('/materiales');
     }
 
+    //agregar campos a material por A.P.U
+    public function uptateAPUMateriales(Request $request, $_id){
+        // Buscar el material por su nombre
+        $materiales = $request->input('materiales');
+        $material = Materiales::where('materiales', $materiales)->first();
+
+        if ($material) {
+            // Si el material existe, agregar cantidad y desperdicio
+            $material->cantidad = $request->input('cantidad');
+            $material->desperdicio = $request->input('desperdicio');
+            $material->save();
+
+            return redirect('/apu');
+        } else {
+            // Si el material no existe, devolver mensaje de error
+            return redirect('/apu')->with('error', 'El material no existe');
+        }
+    }
+
     // -------- EDITAR --------//
 
     //vista editar materiales
@@ -54,11 +73,16 @@ class MaterialesController extends Controller
 
         $material->materiales = $request->input('materiales');
         $material->unidad = $request->input('unidad');
-        $material->valor_unitario = $request->input('valor_unitario');
+        $material->valor_unitario = floatval($request->input('valor_unitario'));
 
         $material->save();
 
         return redirect('/materiales');
+    }
+
+    //agregar material desde APU
+    public function createAPUMateriales(){
+
     }
 
     // -------- ELIMINAR --------//

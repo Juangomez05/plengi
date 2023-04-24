@@ -19,19 +19,23 @@
         <tbody>
             @foreach ($allmateriales as $material)
                 <tr>
-                    <td>{{ $material->id_orden }}</td>
+                    <th scope="row">{{ $material->id_orden }}</th>
                     <td>{{ $material->materiales }}</td>
                     <td>{{ $material->unidad }}</td>
-                    @foreach ($allmatriz as $matriz)
-                        <td>{{$matriz->cantidad}}</td>
-                    @endforeach
-                    <td>{{ $material->valor_unitario }}</td>
-                    <td>{{ $material->valor_total }}</td>
+                    @php $temp_value = "Valor temporal"; @endphp
+                    @if ($material->cantidad)
+                        @php $temp_value = $material->cantidad; @endphp
+                    @endif
+                    <td>{{ $temp_value }}</td>
+                    <td>${{ $material->valor_unitario }}</td>
+                    <td>${{ $material->valor_total }}</td>
                     <td class="text-end col-4 col-md-auto">
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↑</button>
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↓</button>
-                        <a href="{{route('editar_materiales',$material->_id)}}"><button type="submit" class="btn btn-outline-success py-0 mx-0 px-2">Ed</button></a>
-                        <form action="{{route('eliminar_material',$material->_id)}}" method="POST" style="display: inline-block" onsubmit="return confirm('¿Seguro desea eliminar?')">
+                        <a href="{{ route('editar_materiales', $material->_id) }}"><button type="submit"
+                                class="btn btn-outline-success py-0 mx-0 px-2">Ed</button></a>
+                        <form action="{{ route('eliminar_material', $material->_id) }}" method="POST"
+                            style="display: inline-block" onsubmit="return confirm('¿Seguro desea eliminar?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
@@ -46,7 +50,6 @@
     <!-- Ingreso de materiales -->
     <form method="POST" action="{{ route('crear_materiales') }}">
         @csrf
-        {{-- <input type="hidden" name="accion" value="guardar"> --}}
         <div class="row">
             <div class="col-6 pe-1">
                 <input type="text" id="materiales" name="materiales" class="form-control" placeholder="Ingresar Material"
