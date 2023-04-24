@@ -48,7 +48,7 @@
           <input type="text" id="unidad" name="unidad" class="form-control" placeholder="Unidad" aria-label="Unidad">
         </div>
         <div class="col-2 px-1">
-            <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad" aria-label="Cantidad">
+            <input type="text" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad" aria-label="Cantidad">
         </div>
         <div class="col-2 px-1 text-center">
             <button type="submit" class="btn btn-primary d-none d-md-block">Ingresar</button>

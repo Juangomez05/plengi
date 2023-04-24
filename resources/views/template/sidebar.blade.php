@@ -49,7 +49,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="#" class="nav_link border-top">
+                <a href="{{route('logout')}}" class="nav_link border-top">
                     <i class='bx bx-log-out nav_icon'></i>
                     <span class="nav_name">SignOut</span>
                 </a>

@@ -21,6 +21,7 @@ class MaterialesController extends Controller
         ]);
     }
 
+
     //agregar materiales
     public function createMateriales(Request $request){
 
@@ -48,8 +49,13 @@ class MaterialesController extends Controller
 
         if ($material) {
             // Si el material existe, agregar cantidad y desperdicio
-            $material->cantidad = $request->input('cantidad');
-            $material->desperdicio = $request->input('desperdicio');
+            $material->cantidad = floatval($request->input('cantidad'));
+            $material->desperdicio = floatval($request->input('desperdicio'));
+
+            // Obtener el valor_unitario del material
+            $valor_unitario = $material->valor_unitario;
+            $material->valor_total = floatval($request->input('cantidad')) * $valor_unitario;
+
             $material->save();
 
             return redirect('/apu');
@@ -58,6 +64,7 @@ class MaterialesController extends Controller
             return redirect('/apu')->with('error', 'El material no existe');
         }
     }
+
 
     // -------- EDITAR --------//
 
