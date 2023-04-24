@@ -8,6 +8,8 @@ use App\Models\Matriz;
 
 class APUController extends Controller
 {
+    // --------  --------//
+
     public function showAPU(){
         $material = Materiales::all();
         $matriz = Matriz::all();

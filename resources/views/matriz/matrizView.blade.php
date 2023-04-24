@@ -24,8 +24,12 @@
             <td class="text-end col-4 col-md-auto">
                 <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↑</button>
                 <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↓</button>
-                <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2">Ed</button>
-                <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
+                <a href="{{route('editar_matriz',$matriz->_id)}}"><button type="submit" class="btn btn-outline-success py-0 mx-0 px-2">Ed</button></a>
+                <form action="{{route('eliminar_matriz',$matriz->_id)}}" method="POST" style="display: inline-block" onsubmit="return confirm('¿Seguro desea eliminar?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
+                </form>
             </td>
         </tr>
         @endforeach

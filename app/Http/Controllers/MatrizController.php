@@ -7,6 +7,8 @@ use App\Models\Matriz;
 
 class MatrizController extends Controller
 {
+    // -------- AGREGAR --------//
+
     //mostrar todos los datos de matriz
     public function showMatriz(){
         $matriz = Matriz::all();
@@ -33,4 +35,30 @@ class MatrizController extends Controller
 
         return redirect('/presupuesto');
     }
+
+    // -------- EDITAR --------//
+
+    public function editMatriz($_id){
+        $matriz = Matriz::findOrFail($_id);
+        return view('matriz.editMatriz',compact('matriz'));
+    }
+
+    public function updateMatriz(Request $request, $_id){
+        $matriz = Matriz::findOrFail($_id);
+
+        $matriz->actividad = $request->input('actividad');
+        $matriz->unidad = $request->input('unidad');
+        $matriz->cantidad = $request->input('cantidad');
+        $matriz->save();
+
+        return redirect('/presupuesto');
+    }
+
+    // -------- ELIMINAR --------//
+
+    public function destroyMatriz(Matriz $id){
+        $id->delete();
+        return redirect('/presupuesto');
+    }
+
 }

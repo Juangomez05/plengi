@@ -8,6 +8,8 @@ use App\Models\Matriz;
 
 class MaterialesController extends Controller
 {
+    // -------- AGREGAR --------//
+
     //mostrar todos los datos de materiales
     public function showMateriales(){
         $material = Materiales::all();
@@ -38,6 +40,8 @@ class MaterialesController extends Controller
         return redirect('/materiales');
     }
 
+    // -------- EDITAR --------//
+
     //vista editar materiales
     public function editMateriales($_id){
         $material = Materiales::findOrFail($_id);
@@ -56,6 +60,8 @@ class MaterialesController extends Controller
 
         return redirect('/materiales');
     }
+
+    // -------- ELIMINAR --------//
 
     public function destroyMaterial(Materiales $id){
         $id->delete();

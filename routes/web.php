@@ -32,8 +32,15 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //-----------------//
 
 //MATRIZ
+//vista
 Route::get('/presupuesto', [MatrizController::class, 'showMatriz'])->name('presupuesto');
+//crear matriz
 Route::post('/presupuesto',[MatrizController::class, 'createMatriz'])->name('crear_presupuesto');
+//editar matriz
+Route::get('/presupuesto/{id}/update',[MatrizController::class, 'editMatriz'])->name('editar_matriz');
+Route::put('/presupuesto/{id}',[MatrizController::class, 'updateMatriz'])->name('actualizar_matriz');
+//eliminar matriz
+Route::delete('/presupuesto/{id}',[MatrizController::class, 'destroyMatriz'])->name('eliminar_matriz');
 
 //-----------------//
 
