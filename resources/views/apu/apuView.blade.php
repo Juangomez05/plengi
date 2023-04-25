@@ -53,14 +53,18 @@
                     <td>{{$material->unidad}}</td>
                     <td>{{$material->cantidad}}</td>
                     <td>%{{$material->desperdicio}}</td>
-                    <td>{{$material->cantidad}}</td>
+                    <td>{{$material->cantidad_total}}</td>
                     <td>${{$material->valor_unitario}}</td>
                     <td>${{$material->valor_total}}</td>
                     <td class="text-end">
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                        <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
-                        <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
+                        <a href="{{route('editar_materiales_apu',$material->_id)}}"><button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button></a>
+                        <form action="{{route('eliminar_material',$material->_id)}}" method="POST" style="display: inline-block" onsubmit="return confirm('¿Seguro desea eliminar?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -128,7 +132,7 @@
                 <td class="text-end">
                     <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↑</button>
                     <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2 d-none d-xl-inline">↓</button>
-                    <button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button>
+                    <a href="#"><button type="submit" class="btn btn-outline-success py-0 mx-0 px-2 d-none d-lg-inline">Ed</button></a>
                     <button type="submit" class="btn btn-outline-danger py-0 mx-0 px-2">X</button>
                 </td>
             </tr>

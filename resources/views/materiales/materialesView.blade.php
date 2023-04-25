@@ -22,13 +22,17 @@
                     <th scope="row">{{ $material->id_orden }}</th>
                     <td>{{ $material->materiales }}</td>
                     <td>{{ $material->unidad }}</td>
-                    @php $temp_value = "Valor temporal"; @endphp
-                    @if ($material->cantidad)
-                        @php $temp_value = $material->cantidad; @endphp
+                    @php $temp_value = "valor temporal"; @endphp
+                    @if ($material->cantidad_total)
+                        @php $temp_value = $material->cantidad_total; @endphp
                     @endif
                     <td>{{ $temp_value }}</td>
                     <td>${{ $material->valor_unitario }}</td>
-                    <td>${{ $material->valor_total }}</td>
+                    @php $temp_value = "valor temporal"; @endphp
+                    @if ($material->valor_total)
+                        @php $temp_value = $material->valor_total; @endphp
+                    @endif
+                    <td>%{{ $temp_value }}</td>
                     <td class="text-end col-4 col-md-auto">
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↑</button>
                         <button type="submit" class="btn btn-outline-secondary py-0 mx-0 px-2">↓</button>

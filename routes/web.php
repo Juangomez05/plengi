@@ -53,6 +53,9 @@ Route::post('/materiales/{id}/apu', [MaterialesController::class, 'uptateAPUMate
 //editar materiales
 Route::get('/materiales/{id}/update',[MaterialesController::class, 'editMateriales'])->name("editar_materiales");
 Route::put('/materiales/{id}',[MaterialesController::class, 'updateMateriales'])->name("actualizar_materiales");
+//editar materiales apu
+Route::get('/materiales/{id}/apu',[MaterialesController::class, 'edit_apu_material'])->name("editar_materiales_apu");
+Route::put('/material/{id}/apu',[MaterialesController::class, 'update_Materiales_Apu'])->name("actualizar_materiales_apu");
 //eliminar material
 Route::delete('/materiales/{id}',[MaterialesController::class, 'destroyMaterial'])->name("eliminar_material");
 

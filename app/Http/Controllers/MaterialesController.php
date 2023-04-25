@@ -54,7 +54,8 @@ class MaterialesController extends Controller
 
             // Obtener el valor_unitario del material
             $valor_unitario = $material->valor_unitario;
-            $material->valor_total = floatval($request->input('cantidad')) * $valor_unitario;
+            $material->cantidad_total = floatval($request->input('cantidad')) * (($request->input('desperdicio')/100)+1);
+            $material->valor_total = floatval($material->cantidad_total * $valor_unitario);
 
             $material->save();
 
@@ -87,9 +88,22 @@ class MaterialesController extends Controller
         return redirect('/materiales');
     }
 
-    //agregar material desde APU
-    public function createAPUMateriales(){
+    //vista editar materiales A.P.U
+    public function edit_apu_material($_id){
+        $material = Materiales::findOrFail($_id);
+        return view('apu.editApuMaterial',compact('material'));
+    }
 
+    //editar materiales desde A.P.U
+    public function update_Materiales_Apu(Request $request, $_id){
+        $material = Materiales::findOrFail($_id);
+
+        $material->cantidad = floatval($request->input('cantidad'));
+        $material->desperdicio = floatval($request->input('desperdicio'));
+
+        $material->save();
+
+        return redirect('/apu');
     }
 
     // -------- ELIMINAR --------//
