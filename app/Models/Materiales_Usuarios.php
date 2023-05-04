@@ -13,5 +13,6 @@ class Materiales_Usuarios extends Model
     protected $connection = "mongodb";
     protected $collection= "materiales_usuarios";
 
-    protected $fillable = ['material_id'];
+    protected $fillable = ['material_id',
+                            'material'];
 }

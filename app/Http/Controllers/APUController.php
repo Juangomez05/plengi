@@ -35,20 +35,27 @@ class APUController extends Controller
 
     public function buscarMaterial(Request $request)
     {
-        $search = $request->input('search');
-        $material = Materiales::where('materiales', 'like', '%' . $search . '%')->first();
+        try {
+            $search = $request->input('search');
+            $material = Materiales::where('materiales', 'like', '%' . $search . '%')->first();
 
-        // Agregar material a la colección materialesUsuarios si no existe
-        if (!Materiales_Usuarios::where('material_id', $material->_id)->exists()) {
-            Materiales_Usuarios::create([
-                'material_id' => $material->_id,
-                'material' => $material->materiales
-            ]);
+            // Agregar material a la colección materialesUsuarios si no existe
+            if (!Materiales_Usuarios::where('material_id', $material->_id)->exists()) {
+                Materiales_Usuarios::create([
+                    'material_id' => $material->_id,
+                    'material' => $material->materiales
+                ]);
+            }
+
+            $allmateriales = $material ? [$material] : [];
+            return view('apu.apuView', compact('material'));
+        } catch (\Throwable $e) {
+            // Manejar el error aquí
+            $error = "No se encontró el material.";
+            return redirect()->back()->with('flash_error', $error);
         }
-
-        $allmateriales = $material ? [$material] : [];
-        return view('apu.apuView', compact('material'));
     }
+
 
 
 
