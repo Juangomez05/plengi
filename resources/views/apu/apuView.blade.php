@@ -46,7 +46,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($allmateriales as $material)
+            @if(isset($allmateriales))
+                @foreach($allmateriales as $material)
+                    <p>{{ $material->nombre }}</p>
+
                 <tr>
                     <th scope="row">{{$material->id_orden}}</th>
                     <td>{{$material->materiales}}</td>
@@ -67,7 +70,8 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
+            @endif
         </tbody>
     </table>
     <!--/Materiales APU-->
@@ -76,6 +80,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-7">
+
+                {{-- Buscador  --}}
+                <form action="{{ route('buscar_material') }}" method="GET">
+                    <label for="search">Buscar:</label>
+                    <input type="text" name="search" id="search" value="{{ request()->input('search') }}">
+                    <button type="submit">Buscar</button>
+                </form>
+                {{-- /Buscador  --}}
+
                 <form action="{{ route('agregar_materiales_apu', ['id' => $material->_id]) }}" method="POST">
                     @csrf
                     <div class="row">

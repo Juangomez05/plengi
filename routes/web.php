@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MatrizController;
 use App\Http\Controllers\APUController;
 use App\Http\Controllers\MaterialesController;
+use App\Http\Controllers\MatrizUserController;
 
 //-----------------//
 
@@ -33,7 +34,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //vista
 Route::get('/presupuesto', [MatrizController::class, 'showMatriz'])->name('presupuesto');
 //crear matriz
-Route::post('/presupuesto',[MatrizController::class, 'createMatriz'])->name('crear_presupuesto');
+Route::post('/presupuesto',[MatrizUserController::class, 'createMatriz'])->name('crear_presupuesto');
 //editar matriz
 Route::get('/presupuesto/{id}/update',[MatrizController::class, 'editMatriz'])->name('editar_matriz');
 Route::put('/presupuesto/{id}',[MatrizController::class, 'updateMatriz'])->name('actualizar_matriz');
@@ -65,3 +66,6 @@ Route::delete('/materiales/{id}',[MaterialesController::class, 'destroyMaterial'
 
 //vista
 Route::get('/apu',[APUController::class, 'showAPU'])->name('apu');
+//buscar material
+//Route::get('/apu/search',[APUController::class, 'searchMaterial'])->name('buscar_material');
+Route::get('/apu/search',[APUController::class, 'buscarMaterial'])->name('buscar_material');

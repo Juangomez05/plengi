@@ -58,25 +58,25 @@
                 <div class="carousel-item active">
                     <img src="/assets/img/home-1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h5>PLENGI</h5>
-                        <p>Desarrolla tu presupuesto con nosotros</p>
-                        <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
+                        <h5>PRESUPUESTOS DE OBRA</h5>
+                        <p>Crea tu presupuesto de obra rápido, fácil y GRATIS.</p>
+                        <p><a href="{{route('login')}}" class="btn btn-warning mt-3">INICIAR AQUÍ</a></p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/assets/img/home-2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h5>Nuestros proyectos</h5>
-                        <p>Desarrolla tu presupuesto con nosotros</p>
-                        <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
+                        <h5>CONTROL DE OBRA</h5>
+                        <p>Planea y controla la ejecución de tu proyecto.</p>
+                        <p><a href="{{route('login')}}" class="btn btn-warning mt-3">INICIAR AQUÍ</a></p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/assets/img/home-3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h5>Tu presupuesto gratis</h5>
-                        <p>Desarrolla tu presupuesto con nosotros</p>
-                        <p><a href="{{route('login')}}" class="btn btn-warning mt3">Get started</a></p>
+                        <h5>BASE DE DATOS</h5>
+                        <p>Guíate con nuestra base de datos de PRESUPUESTOS y APUS.</p>
+                        <p><a href="{{route('login')}}" class="btn btn-warning mt-3">INICIAR AQUÍ</a></p>
                     </div>
                 </div>
             </div>
@@ -102,12 +102,12 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="nosotros-img">
-                        <img src="/assets/img/about.jpg" alt="" class="img-fluid">
+                        <img src="/assets/logo/img _plengi.png" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
                     <div class="nosotros-text">
-                        <h2>Ofrecemos servicios de <br> la mejor calidad </h2>
+                        <h2>PLENGI<br>Plataforma de ingeniería civil</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Rem eveniet quibusdam ullam voluptate debitis amet deleniti
                             officiis, dolores eum velit modi facilis, quia ex consequuntur,

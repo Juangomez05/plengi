@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Database\Eloquent\Model;
 Use Jenssegers\Mongodb\Eloquent\Model;
 
-class APU extends Model
+class Materiales_Usuarios extends Model
 {
     use HasFactory;
+
     protected $connection = "mongodb";
-    protected $collection = "a_p_u_User";
+    protected $collection= "materiales_usuarios";
+
+    protected $fillable = ['material_id'];
 }
